@@ -9,4 +9,5 @@ First release.
 - Notifications are posted from the OpenCode app while it runs, so a click lands there; the system banner is the fallback.
 - Desktop **Schedules** tab: jobs, active runs, finished runs, editor with weekday/time rules, `@skill:` / `@agent:` insertion, global settings, titlebar pill.
 - Agent tools `scheduler_add` / `_list` / `_remove` / `_enable` / `_run` and the `opencode-scheduler` CLI.
+- CI on `main` and pull requests; release candidates from `release/x.y.z` branches, releases from `x.y.z` tags.
 - One scheduler across processes (leader lock), catch-up after downtime, timeouts that exclude time spent waiting for you, run history.

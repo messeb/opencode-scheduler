@@ -1,0 +1,44 @@
+# A pushed tag x.y.z: check, then publish release x.y.z on GitHub with the CHANGELOG section as notes
+# (and to npm under "latest" when the NPM_TOKEN secret is set).
+name: Release
+
+on:
+  push:
+    tags: ["[0-9]+.[0-9]+.[0-9]+"]
+
+jobs:
+  check:
+    uses: ./.github/workflows/check.yml
+
+  release:
+    needs: check
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          registry-url: https://registry.npmjs.org
+      - run: npm ci
+      - name: Version
+        id: version
+        run: echo "version=$(node scripts/release.mjs version "$GITHUB_REF_NAME")" >> "$GITHUB_OUTPUT"
+      - name: Release notes
+        env:
+          VERSION: ${{ steps.version.outputs.version }}
+        run: node scripts/release.mjs notes "$VERSION" > release-notes.md
+      - run: npm pack
+      - name: GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          VERSION: ${{ steps.version.outputs.version }}
+        run: gh release create "$VERSION" ./*.tgz --verify-tag --latest --title "$VERSION" --notes-file release-notes.md
+      - name: npm (latest)
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        if: env.NODE_AUTH_TOKEN != ''
+        run: npm publish ./*.tgz --provenance --access public
