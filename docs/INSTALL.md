@@ -20,6 +20,14 @@ Or add it to `opencode.jsonc` yourself and skip the CLI:
 { "plugin": ["@messeb/opencode-scheduler"] }
 ```
 
+## From the desktop app
+
+The OpenCode app has no install field; plugins come from `plugin` in your global `opencode.json`.
+
+1. Ask the agent in any session: *"Add the plugin `@messeb/opencode-scheduler` to my global OpenCode config."* Or use **Settings → Extensions → Manage in opencode.json** and add `"@messeb/opencode-scheduler"` (or a checkout's folder path) to `plugin`.
+2. **Settings → Extensions → Plugins → Reload.** The list shows `opencode-scheduler` with its server part and desktop UI; its switch turns off only the desktop UI.
+3. Restart the app if the Schedules tab doesn't show up yet.
+
 ## From a checkout
 
 Shortcut for the steps below: `npm run setup && opencode service restart`.
