@@ -22,6 +22,8 @@ Or add it to `opencode.jsonc` yourself and skip the CLI:
 
 ## From a checkout
 
+Shortcut for the steps below: `npm run setup && opencode service restart`.
+
 ```sh
 git clone <this repo> opencode-scheduler && cd opencode-scheduler
 npm install

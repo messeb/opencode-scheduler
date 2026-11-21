@@ -12,19 +12,27 @@ Run opencode skills on a schedule. Runs are autonomous, and when the agent needs
 - **Agent tools and a CLI:** ask the agent to schedule something, or use `opencode-scheduler`.
 - **Reliable:** no overlapping runs, catch-up after downtime, timeouts that skip the time spent waiting for you.
 
-## Quick start
+## Fast installation
+
+From npm:
 
 ```sh
-npm install -g @messeb/opencode-scheduler
-opencode-scheduler install       # registers the plugin in ~/.config/opencode/opencode.jsonc
-opencode service restart
+npm install -g @messeb/opencode-scheduler && opencode-scheduler install && opencode service restart
 ```
 
-Restart the OpenCode desktop app once, then open **Schedules** from the + menu. Or ask the agent:
+From a checkout of this repo:
+
+```sh
+npm run setup && opencode service restart
+```
+
+`setup` installs the dependencies, builds the desktop tab, links the `opencode-scheduler` command and registers the plugin in `~/.config/opencode/opencode.jsonc`.
+
+Then restart the OpenCode desktop app once and open **Schedules** from the + menu. Or ask the agent:
 
 > Schedule the `triage` skill every weekday at 9:00 in this repo, and focus on new bugs.
 
-Requires opencode 2.x (tested with 2.3.2).
+Requires opencode 2.x (tested with 2.3.2). Details and other options: [Install](docs/INSTALL.md).
 
 ## Documentation
 

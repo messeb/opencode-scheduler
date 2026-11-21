@@ -39,7 +39,8 @@
     "typecheck": "tsc -p tsconfig.json",
     "test:gui": "node --conditions=browser test/gui-harness.mjs",
     "check": "npm run typecheck && npm test && npm run build:gui && npm run test:gui",
-    "prepack": "npm run build:gui"
+    "prepack": "npm run build:gui",
+    "setup": "npm install && npm run build:gui && npm link && opencode-scheduler install"
   },
   "engines": {
     "node": ">=20"
