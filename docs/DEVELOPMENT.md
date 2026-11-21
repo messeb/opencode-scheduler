@@ -3,6 +3,8 @@
 [README](../README.md) · [Install](INSTALL.md) · [Usage](USAGE.md) · [Configuration](CONFIGURATION.md) · [Architecture](ARCHITECTURE.md) · [Development](DEVELOPMENT.md)
 
 
+## Checks
+
 ```sh
 npm test            # domain rules, event translation, scheduler, job repository, notifier, terminal launchers, config editing
 npm run typecheck   # GUI types against @opencode/plugin 2.3.2
