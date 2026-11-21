@@ -1,0 +1,57 @@
+{
+  "name": "@messeb/opencode-scheduler",
+  "version": "0.1.0",
+  "description": "opencode plugin: run skills on a schedule, autonomously, and pull you into the session with a desktop notification when the agent needs you.",
+  "keywords": [
+    "opencode",
+    "opencode-plugin",
+    "scheduler",
+    "cron",
+    "agent",
+    "autonomous",
+    "opencode-gui"
+  ],
+  "license": "MIT",
+  "author": "Sebastian Messingfeld <sebastian@messeb.com>",
+  "type": "module",
+  "main": "./src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./server": "./src/index.js",
+    "./rpc": "./src/interfaces/rpc/contract.js",
+    "./gui-experimental": "./dist/gui-experimental.cjs"
+  },
+  "bin": {
+    "opencode-scheduler": "./bin/cli.js"
+  },
+  "files": [
+    "src",
+    "bin",
+    "dist",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node --test test/*.test.js",
+    "build:gui": "vite build",
+    "typecheck": "tsc -p tsconfig.json",
+    "test:gui": "node --conditions=browser test/gui-harness.mjs",
+    "check": "npm run typecheck && npm test && npm run build:gui && npm run test:gui",
+    "prepack": "npm run build:gui"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@opencode/plugin": "^2.3.2",
+    "jsdom": "^26.1.0",
+    "solid-js": "^1.9.17",
+    "typescript": "^5.9.3",
+    "vite": "^7.3.7",
+    "vite-plugin-solid": "^2.11.10"
+  }
+}
