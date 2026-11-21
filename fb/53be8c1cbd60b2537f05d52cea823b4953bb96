@@ -1,0 +1,14 @@
+docs/DEVELOPMENT.md
+  h_a51360f058d7fc 6-7
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "fb53be8c1cbd60b2537f05d52cea823b4953bb96",
+  "prompts": {},
+  "humans": {
+    "h_a51360f058d7fc": {
+      "author": "Sebastian Messingfeld <sebastian@messeb.com>"
+    }
+  }
+}
