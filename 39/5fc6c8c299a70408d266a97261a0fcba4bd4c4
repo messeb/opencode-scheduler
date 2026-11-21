@@ -1,0 +1,23 @@
+README.md
+  s_a77a8d3debf0ca::t_806df3969bf919 15-23,26,29-31,35
+package.json
+  s_a77a8d3debf0ca::t_806df3969bf919 42-43
+docs/INSTALL.md
+  s_a77a8d3debf0ca::t_806df3969bf919 25-26
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "395fc6c8c299a70408d266a97261a0fcba4bd4c4",
+  "prompts": {},
+  "sessions": {
+    "s_a77a8d3debf0ca": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "1a3df627-b83b-4eaf-a2b6-81b8789a0cbc",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Sebastian Messingfeld <sebastian@messeb.com>"
+    }
+  }
+}
