@@ -1,26 +1,22 @@
 # opencode-scheduler
 
-npm package: `@messeb/opencode-scheduler` · plugin id and CLI: `opencode-scheduler` · MIT
-
 An opencode plugin that runs skills on a schedule. Runs are autonomous. When the agent needs a decision, it asks with the question tool. You then get a desktop notification, and one click opens that exact session in the OpenCode desktop app (or, if you prefer, in a terminal), where you answer. The run then carries on.
 
 The desktop app gets a **Schedules** tab that lists jobs, active runs and finished runs.
 
 Requires opencode **2.x** (tested with 2.3.2). It uses the v2 plugin API, its background service and its desktop GUI plugin API.
 
-## Prior art
+## Features
 
-Nothing combines all five pieces: schedule, autonomy, ask a human, notify, and attach.
-
-| Project | Schedule | Autonomous | Asks you | Notifies | Attach | Gap |
-|---|---|---|---|---|---|---|
-| [opencode-scheduler](https://github.com/different-ai/opencode-scheduler) (different project, owns the unscoped npm name) | ✓ (launchd/systemd + `opencode run`) | ✓ | ✗ denies `question` on purpose | ✗ | partial | no human in the loop |
-| [OpenCode Manager](https://chriswritescode-dev.github.io/opencode-manager/features/schedules/) | ✓ cron | ✓ | opt-in | push (unclear for questions) | ✓ web | separate web app, not a plugin |
-| [opencode-notifier](https://github.com/mohak34/opencode-notifier), [opencode-shepherd](https://github.com/okazakee/opencode-shepherd) | ✗ | – | answers remotely (shepherd) | ✓ | partial | no scheduling |
-| Claude Code Routines / Codex Automations | ✓ | ✓ | ✗ | inbox | web/app | other agents, cloud/app only |
-| claude-squad, agent-deck, vibe-kanban | ✗ | partial | in pane | partial | ✓ | no scheduling |
-
-One finding shapes the design: `opencode run` **cancels questions** in non-interactive mode, so a cron job built on `opencode run` cannot ask you anything. This plugin runs inside the opencode server instead. It creates the sessions itself, so questions stay open until you answer.
+- **Schedules:** 5-field cron, `@daily`-style macros, fixed intervals (`every 30m`), one-shot runs (`at 2026-11-21 09:00`) and back-to-back runs (`continuous 5m`). One job can have several rules (`0 9 * * 1-3; 0 13 * * 1-5`).
+- **What a job runs:** a skill, free instructions with `@skill:` / `@agent:` references, or a slash command, in a project directory you choose, with an optional agent and model.
+- **Autonomous runs with you in the loop:** the run works on its own. When the agent asks a question or needs a permission, the session waits for you instead of failing. The plugin runs inside the opencode server and creates the sessions itself, so questions stay open until you answer.
+- **Notifications that lead into the session:** a desktop notification on questions, permissions, finished and failed runs. One click opens that session as a tab in the OpenCode desktop app, or in a terminal if you prefer.
+- **Schedules tab in the desktop app:** create, edit, duplicate and delete jobs, see active and finished runs, answer, stop or run now. A titlebar pill shows how many runs wait for you.
+- **Agent tools and CLI:** ask the agent to add, list, pause, remove or run jobs, or use the `opencode-scheduler` command.
+- **Reliable runs:** a job never overlaps with itself, a missed run fires once after downtime, timeouts don't count the time spent waiting for you, and one scheduler runs across all opencode processes.
+- **Optional auto-approval:** `permissions: "auto"` lets trusted jobs approve their own permission requests.
+- **Session modes:** a fresh session per run, or one long-lived session that remembers earlier runs.
 
 ## How it works
 
