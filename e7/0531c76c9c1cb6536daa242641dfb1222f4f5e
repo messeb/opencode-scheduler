@@ -1,0 +1,34 @@
+.github/workflows/release.yml
+  s_a77a8d3debf0ca::t_b161747ff456ab 1-44
+.github/workflows/check.yml
+  s_a77a8d3debf0ca::t_b161747ff456ab 1-23
+.github/workflows/ci.yml
+  s_a77a8d3debf0ca::t_b161747ff456ab 1,11
+scripts/release.mjs
+  s_a77a8d3debf0ca::t_b161747ff456ab 1-51
+test/release.test.js
+  s_a77a8d3debf0ca::t_b161747ff456ab 1-19
+docs/DEVELOPMENT.md
+  s_a77a8d3debf0ca::t_42f871856ce8c3 14-23,26-44
+.github/workflows/release-candidate.yml
+  s_a77a8d3debf0ca::t_42f871856ce8c3 22
+  s_a77a8d3debf0ca::t_b161747ff456ab 1-21,23-58
+CHANGELOG.md
+  s_a77a8d3debf0ca::t_690d81915d3661 12
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "e70531c76c9c1cb6536daa242641dfb1222f4f5e",
+  "prompts": {},
+  "sessions": {
+    "s_a77a8d3debf0ca": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "1a3df627-b83b-4eaf-a2b6-81b8789a0cbc",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Sebastian Messingfeld <sebastian@messeb.com>"
+    }
+  }
+}
