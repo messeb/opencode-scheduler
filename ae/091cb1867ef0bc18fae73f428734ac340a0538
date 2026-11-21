@@ -1,0 +1,35 @@
+docs/DEVELOPMENT.md
+  s_a77a8d3debf0ca::t_5a4df04e8a3ad3 14-18
+  s_a77a8d3debf0ca::t_0ec00ab023a011 1-13
+docs/INSTALL.md
+  s_a77a8d3debf0ca::t_0ec00ab023a011 1-49
+docs/CONFIGURATION.md
+  s_a77a8d3debf0ca::t_0ec00ab023a011 1-4,6-17,19-71
+  s_a77a8d3debf0ca::t_4e18fdb19aa61a 5,18
+README.md
+  s_a77a8d3debf0ca::t_5a4df04e8a3ad3 3,7-13,15,19,23,27,29,31-36,38,40
+docs/USAGE.md
+  s_a77a8d3debf0ca::t_0ec00ab023a011 1-4,6-10,12-25,27-43
+  s_a77a8d3debf0ca::t_4e18fdb19aa61a 5,11,26
+docs/ARCHITECTURE.md
+  s_a77a8d3debf0ca::t_0ec00ab023a011 1-24,26-43
+  s_a77a8d3debf0ca::t_4e18fdb19aa61a 25
+package.json
+  s_a77a8d3debf0ca::t_d3e645a7a2e5ee 32
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "ae091cb1867ef0bc18fae73f428734ac340a0538",
+  "prompts": {},
+  "sessions": {
+    "s_a77a8d3debf0ca": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "1a3df627-b83b-4eaf-a2b6-81b8789a0cbc",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Sebastian Messingfeld <sebastian@messeb.com>"
+    }
+  }
+}
